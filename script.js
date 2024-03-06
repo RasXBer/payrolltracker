@@ -2,11 +2,18 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 let employeesArray = [];
 
-
 // Collect employee data
+
+function toSentenceCase(input) {
+  return input.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function(c) {
+      return c.toUpperCase();
+  });
+}
 const collectEmployees = function () {
   var firstName = prompt("First Name");
+  var fName = toSentenceCase(firstName);
   var lastName = prompt("Last Name");
+  var lName = toSentenceCase(lastName);
   var salary = prompt("Salary");
 
   if (firstName === null) {
@@ -16,7 +23,7 @@ const collectEmployees = function () {
     console.log(collectEmployees);
   }
   // let addEmployeesBtn = true;
-  employeesArray.push({ firstName: firstName, lastName: lastName, salary: salary })
+  employeesArray.push({ firstName: fName, lastName: lName, salary: salary })
   var employee = 1
   var text = "";
 
